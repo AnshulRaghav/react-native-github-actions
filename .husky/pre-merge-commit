@@ -2,5 +2,9 @@
 
 . "$(dirname -- "$0")/_/husky.sh"
 
+commit_msg_file=$1
+
 # Only validate messages for merge commits
-exec < /dev/tty && git interpret-trailers --in-place --trailer "pre-merge-commit=true" --trailer "merge-message-file=.git/MERGE_MSG" --hook=prepare-commit-msg
+if [[ -n $commit_msg_file && $(git rev-parse --verify HEAD^2) != "HEAD^2" ]]; then
+  echo $1 | npx commitlint
+fi
