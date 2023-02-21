@@ -26,6 +26,9 @@ jobs:
 
       - name: Install Node modules
         run: yarn ci
+      
+      - name: Validate merge commit message
+        run: .husky/pre-merge-commit
 
       - name: 'Automated Version Bump'
         uses: 'paramsinghvc/gh-action-bump-version@master'
