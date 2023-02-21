@@ -72,7 +72,7 @@ jobs:
       - name: Upload Artifact
         uses: actions/upload-artifact@v3
         with:
-          name: Timely.aab
+          name: Appname.aab
           path: ${{steps.sign_app.outputs.signedReleaseFile}}
 
   publish-to-appcenter:
@@ -84,7 +84,7 @@ jobs:
 
       - uses: actions/download-artifact@v3
         with:
-          name: Timely.aab
+          name: Appname.aab
           path: 'android/'
 
       - name: set up JDK 1.8
@@ -95,7 +95,7 @@ jobs:
       - name: Upload artifact to App Center
         uses: wzieba/AppCenter-Github-Action@v1
         with:
-          appName: paramsinghvc/Timely
+          appName: ownerUsername/Appname
           token: ${{secrets.APPCENTER_TOKEN_ANDROID}}
           group: UKInternal
           file: android/app-release.aab
