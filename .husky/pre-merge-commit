@@ -1,11 +1,6 @@
-#!/bin/bash
+#!/usr/bin/env sh
 
-commit_msg_file=$1
+. "$(dirname -- "$0")/_/husky.sh"
 
 # Only validate messages for merge commits
-if [[ -n $commit_msg_file && $(git rev-parse --verify HEAD^2) != "HEAD^2" ]]; then
-  if ! npx commitlint -E HUSKY_GIT_PARAMS < "$commit_msg_file"; then
-    echo "Commit message validation failed. Please fix the errors and try again."
-    exit 1
-  fi
-fi
+exec < /dev/tty && git interpret-trailers --in-place --trailer "pre-merge-commit=true" --trailer "merge-message-file=.git/MERGE_MSG" --hook=prepare-commit-msg

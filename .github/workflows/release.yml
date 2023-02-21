@@ -34,7 +34,7 @@ jobs:
         run: .husky/pre-merge-commit
 
       - name: 'Automated Version Bump'
-        uses: 'paramsinghvc/gh-action-bump-version@master'
+        uses: 'ownerUsername/gh-action-bump-version@master'
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
