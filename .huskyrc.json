@@ -1,0 +1,5 @@
+{
+    "hooks": {
+      "pre-merge-commit": "npx commitlint -E HUSKY_GIT_PARAMS"
+    }
+  }

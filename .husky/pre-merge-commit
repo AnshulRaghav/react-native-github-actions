@@ -3,8 +3,4 @@
 . "$(dirname -- "$0")/_/husky.sh"
 
 # Only run the script for merge commits
-MSG_FILE="$1"
-MERGE_MSG=$(cat "$MSG_FILE")
-
-# Lint the commit message using commitlint
-echo "$MERGE_MSG" | npx commitlint
+npx commitlint --edit $1
