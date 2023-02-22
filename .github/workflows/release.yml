@@ -27,14 +27,8 @@ jobs:
       - name: Install Node modules
         run: yarn ci
 
-      - name: File permission
-        run: chmod +x .husky/pre-merge-commit
-      
-      - name: Validate merge commit message
-        run: .husky/pre-merge-commit
-
       - name: 'Automated Version Bump'
-        uses: 'ownerUsername/gh-action-bump-version@master'
+        uses: 'paramsinghvc/gh-action-bump-version@master'
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
