@@ -5,6 +5,4 @@
 commit_msg_file=$1
 
 # Only validate messages for merge commits
-if [[ -n $commit_msg_file && $(git rev-parse --verify HEAD^2) != "HEAD^2" ]]; then
-  echo $1 | npx commitlint
-fi
+echo $1 | npx commitlint
