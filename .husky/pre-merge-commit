@@ -2,7 +2,9 @@
 
 . "$(dirname -- "$0")/_/husky.sh"
 
-commit_msg_file=$1
+# Only run the script for merge commits
+MSG_FILE="$1"
+MERGE_MSG=$(cat "$MSG_FILE")
 
-# Only validate messages for merge commits
-echo $1 | npx commitlint
+# Lint the commit message using commitlint
+echo "$MERGE_MSG" | npx commitlint
