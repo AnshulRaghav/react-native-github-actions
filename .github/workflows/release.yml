@@ -25,7 +25,7 @@ jobs:
           cache: 'yarn'
 
       - name: Install Node modules
-        run: yarn ci
+        run: yarn ci 
 
       - name: 'Automated Version Bump'
         uses: 'paramsinghvc/gh-action-bump-version@master'
