@@ -34,7 +34,7 @@ jobs:
 
       - name: Close pull request if validation fails
         if: ${{ failure() }}
-        uses: peter-evans/close-pull-request@v2
+        uses: peter-evans/close-pull@v2
         with:
           comment: "Sorry, this pull request cannot be merged until the validation checks pass."
           labels: invalid
