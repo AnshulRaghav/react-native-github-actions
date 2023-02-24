@@ -31,10 +31,10 @@ jobs:
 
       - name: Linting
         run: yarn lint
-        
+
       - name: Close pull request if validation fails
         if: ${{ failure() }}
-        uses: peter-evans/close-pull-request@v1
+        uses: peter-evans/close-pull-request@v2
         with:
           comment: "Sorry, this pull request cannot be merged until the validation checks pass."
           labels: invalid
