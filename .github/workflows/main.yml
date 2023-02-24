@@ -1,4 +1,4 @@
-name: Pull Request into Master, Develop and Preprod
+name: Pull Request into Master and Preprod
 
 on:
   pull_request:
@@ -37,6 +37,5 @@ jobs:
         uses: peter-evans/close-pull@v2
         with:
           comment: "Sorry, this pull request cannot be merged until the validation checks pass."
-          labels: invalid
 
 
