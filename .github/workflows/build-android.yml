@@ -95,9 +95,9 @@ jobs:
       - name: Upload artifact to App Center
         uses: wzieba/AppCenter-Github-Action@v1
         with:
-          appName: tigbar
+          appName: appName
           token: ${{secrets.APPCENTER_TOKEN_ANDROID}}
-          group: alpha 1.0
+          group: UKInternal
           file: android/app/build/outputs/bundle/release/app-release.aab
           notifyTesters: true
           debug: false
