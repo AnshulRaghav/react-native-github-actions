@@ -1,16 +1,15 @@
-name: Pull Request into Master, Develop and Preprod
+name: Pull Request into Master and Preprod
 
 on:
   pull_request:
     branches:
       - 'master'
-      - 'dev'
       - 'stag'
 
 jobs:
   #First job
   install-and-test:
-    runs-on: ubuntu-latest
+    runs-on: macos-latest
 
     steps:
       - name: Validate PR title
@@ -32,4 +31,11 @@ jobs:
 
       - name: Linting
         run: yarn lint
+
+      - name: Close pull request if validation fails
+        if: ${{ failure() }}
+        uses: peter-evans/close-pull@v2
+        with:
+          comment: "Sorry, this pull request cannot be merged until the validation checks pass."
+
 

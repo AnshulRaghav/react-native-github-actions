@@ -23,7 +23,7 @@ on:
 
 jobs:
   build-android:
-    runs-on: ubuntu-latest
+    runs-on: macos-latest
     steps:
       - uses: actions/checkout@v2
 
@@ -72,19 +72,19 @@ jobs:
       - name: Upload Artifact
         uses: actions/upload-artifact@v3
         with:
-          name: Appname.aab
+          name: app-release.aab
           path: ${{steps.sign_app.outputs.signedReleaseFile}}
 
   publish-to-appcenter:
     if: ${{ inputs.publish == true }}
-    runs-on: ubuntu-latest
+    runs-on: macos-latest
     needs: build-android
     steps:
       - uses: actions/checkout@v2
 
       - uses: actions/download-artifact@v3
         with:
-          name: Appname.aab
+          name: app-release.aab
           path: 'android/'
 
       - name: set up JDK 1.8
@@ -95,9 +95,9 @@ jobs:
       - name: Upload artifact to App Center
         uses: wzieba/AppCenter-Github-Action@v1
         with:
-          appName: ownerUsername/Appname
+          appName: appName
           token: ${{secrets.APPCENTER_TOKEN_ANDROID}}
           group: UKInternal
-          file: android/app-release.aab
+          file: android/app/build/outputs/bundle/release/app-release.aab
           notifyTesters: true
           debug: false
