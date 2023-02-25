@@ -34,7 +34,7 @@ jobs:
         run: yarn lint
 
       - name: Close pull request on master and stag if validation fails
-        if: ${{ failure() && (github.head_ref!=dev || github.ref_name!=dev) }}
+        if: ${{ failure() && (github.head_ref!='dev' || github.ref_name!='dev') }}
         uses: peter-evans/close-pull@v2
         with:
           comment: "Sorry, this pull request cannot be merged until the validation checks pass."
