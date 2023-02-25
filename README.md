@@ -1,2 +1,2 @@
 # react-native-github-actions
-React Native app integrated with github actions CI/CD to deploy on playstore and App Store
+CI/CD : React Native app integrated with Github Actions to deploy on playstore and App Store
