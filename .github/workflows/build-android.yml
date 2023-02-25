@@ -72,7 +72,7 @@ jobs:
       - name: Upload Artifact
         uses: actions/upload-artifact@v3
         with:
-          name: Appname.aab
+          name: app-release.aab
           path: ${{steps.sign_app.outputs.signedReleaseFile}}
 
   publish-to-appcenter:
@@ -84,7 +84,7 @@ jobs:
 
       - uses: actions/download-artifact@v3
         with:
-          name: Appname.aab
+          name: app-release.aab
           path: 'android/'
 
       - name: set up JDK 1.8
@@ -95,9 +95,9 @@ jobs:
       - name: Upload artifact to App Center
         uses: wzieba/AppCenter-Github-Action@v1
         with:
-          appName: ownerUsername/Appname
+          appName: tigbar
           token: ${{secrets.APPCENTER_TOKEN_ANDROID}}
-          group: UKInternal
-          file: android/app-release.aab
+          group: alpha 1.0
+          file: android/app/build/outputs/bundle/release/app-release.aab
           notifyTesters: true
           debug: false
