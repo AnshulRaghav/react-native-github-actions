@@ -8,6 +8,7 @@ on:
     branches: 
       - master
       - stag
+      - dev
 
 jobs:
   versioning:
@@ -19,6 +20,7 @@ jobs:
 
   # Second Job
   build-and-release-android:
+    if:  ${{ github.head_ref != 'dev' || github.ref_name !='dev' }}
     needs: versioning
     uses: ./.github/workflows/build-android.yml
     with:
@@ -28,6 +30,7 @@ jobs:
 
   # Third Job
   build-and-release-ios:
+    if:  ${{ github.head_ref != 'dev' || github.ref_name !='dev' }}
     needs: versioning
     uses: ./.github/workflows/build-ios.yml
     with:
