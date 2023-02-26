@@ -32,6 +32,7 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
+          if:  ${{ github.head_ref != 'master' || github.ref_name !='master' }}
           tag-prefix: 'v'
           tag-suffix: ${{ inputs.tag-suffix }}
 

@@ -8,6 +8,7 @@ on:
     branches: 
       - master
       - stag
+      - dev
 
 jobs:
   versioning:
@@ -23,7 +24,7 @@ jobs:
     uses: ./.github/workflows/build-android.yml
     with:
       environment: release
-      publish: true
+      publish: ${{ github.head_ref != 'dev' && github.ref_name !='dev' }}
     secrets: inherit
 
   # Third Job
@@ -31,5 +32,5 @@ jobs:
     needs: versioning
     uses: ./.github/workflows/build-ios.yml
     with:
-      publish: true
+      publish: ${{ github.head_ref != 'dev' && github.ref_name !='dev' }}
     secrets: inherit
