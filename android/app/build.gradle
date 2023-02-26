@@ -99,7 +99,7 @@ android {
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 25
-        versionName "0.1.1-dev.6"
+        versionName "0.1.1-dev.7"
     }
 
     splits {
