@@ -25,6 +25,8 @@ jobs:
     with:
       environment: release
       publish: ${{ github.head_ref != 'dev' || github.ref_name !='dev' }}
+      branch: ${{github.head_ref}}
+      branch-a: ${{github.ref_name}}
     secrets: inherit
 
   # Third Job
