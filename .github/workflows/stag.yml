@@ -26,6 +26,9 @@ jobs:
     with:
       environment: release
       publish: true
+      APPCENTER_TOKEN_ANDROID: APPCENTER_TOKEN_ANDROID
+      ANDROID_KEYSTORE: ANDROID_KEYSTORE
+      ANDROID_KEYSTORE_PASSWORD: ANDROID_KEYSTORE_PASSWORD
     secrets: inherit
 
   # Third Job
@@ -35,4 +38,9 @@ jobs:
     uses: ./.github/workflows/build-ios.yml
     with:
       publish: true
+      IOS_P12_BASE64: IOS_P12_BASE64
+      IOS_MOBILEPROVISION_BASE64: IOS_MOBILEPROVISION_BASE64
+      IOS_TEAM_ID: IOS_TEAM_ID
+      IOS_CERTIFICATE_PASSWORD: IOS_CERTIFICATE_PASSWORD
+      APPCENTER_TOKEN_IOS: APPCENTER_TOKEN_IOS
     secrets: inherit
