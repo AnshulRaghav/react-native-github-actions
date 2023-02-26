@@ -42,7 +42,7 @@ jobs:
           cache: 'yarn'
 
       - name: Install Node modules
-        run: echo ${{branch}} && echo ${{branch-a}} && yarn ci
+        run: echo ${{inputs.branch}} && echo ${{inputs.branch-a}} && yarn ci
 
       - name: Cache Gradle Wrapper
         uses: actions/cache@v2
