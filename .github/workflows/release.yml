@@ -34,7 +34,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           tag-prefix: 'v'
-          tag-suffix: ${{ inputs.tag-suffix }}
+          tag-suffix: -${{ inputs.tag-suffix }}
 
       - name: 'Sync React Native version with package.json version'
         run: npx react-native-version
