@@ -27,8 +27,9 @@ jobs:
       - name: Install Node modules
         run: yarn ci 
 
+      #not bumping version from PR description  
       - name: 'Automated Version Bump'
-        uses: 'paramsinghvc/gh-action-bump-version@master'
+        uses: 'phips28/gh-action-bump-version@master'
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
