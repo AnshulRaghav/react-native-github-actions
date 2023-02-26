@@ -7,14 +7,6 @@ on:
         required: false
         type: string
         default: 'release'
-      branch:
-        required: false
-        type: string
-        default: 'release'
-      branch-a:
-        required: false
-        type: string
-        default: 'release'
       publish:
         required: false
         type: boolean
@@ -42,7 +34,7 @@ jobs:
           cache: 'yarn'
 
       - name: Install Node modules
-        run: echo ${{inputs.branch}} && echo ${{inputs.branch-a}} && yarn ci
+        run: yarn ci
 
       - name: Cache Gradle Wrapper
         uses: actions/cache@v2

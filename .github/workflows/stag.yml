@@ -24,9 +24,7 @@ jobs:
     uses: ./.github/workflows/build-android.yml
     with:
       environment: release
-      publish: ${{ github.head_ref != 'dev' || github.ref_name !='dev' }}
-      branch: ${{github.head_ref}}
-      branch-a: ${{github.ref_name}}
+      publish: ${{ github.head_ref != 'dev' && github.ref_name !='dev' }}
     secrets: inherit
 
   # Third Job
@@ -34,5 +32,5 @@ jobs:
     needs: versioning
     uses: ./.github/workflows/build-ios.yml
     with:
-      publish: ${{ github.head_ref != 'dev' || github.ref_name !='dev' }}
+      publish: ${{ github.head_ref != 'dev' && github.ref_name !='dev' }}
     secrets: inherit
