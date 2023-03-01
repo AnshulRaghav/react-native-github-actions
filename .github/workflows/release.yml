@@ -1,3 +1,5 @@
+#This will bump the RN app version and sync it with iOS and android.
+
 name: Release
 
 on:
