@@ -28,13 +28,12 @@ jobs:
         run: yarn ci 
 
       - name: 'Automated Version Bump'
-        uses: 'paramsinghvc/gh-action-bump-version@master'
+        uses: 'phips28/gh-action-bump-version@master'
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           tag-prefix: 'v'
           tag-suffix: ${{ inputs.tag-suffix }}
-          bump-policy: 'ignore'
 
       - name: 'Sync React Native version with package.json version'
         run: npx react-native-version

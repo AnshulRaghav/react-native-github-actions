@@ -13,7 +13,6 @@ jobs:
   versioning:
     uses: ./.github/workflows/release.yml
     with:
-      if:  ${{ github.head_ref != 'master' && github.ref_name !='master' }}
       tag-suffix: ${{ github.head_ref || github.ref_name }}
       release-title: ${{ github.head_ref || github.ref_name }} build
     secrets: inherit
