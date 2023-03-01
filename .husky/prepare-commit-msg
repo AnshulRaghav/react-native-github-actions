@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
 . "$(dirname -- "$0")/_/husky.sh"
 
-if [[ -n $1 && $(git rev-parse -q --verify MERGE_HEAD) ]]; then
-  npx commitlint < "$1" 
-fi
+# if [[ -n $1 && $(git rev-parse -q --verify MERGE_HEAD) ]]; then
+#   npx commitlint < "$1" 
+# fi

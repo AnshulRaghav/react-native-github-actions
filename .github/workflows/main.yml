@@ -1,4 +1,4 @@
-name: Pull Request into Master and Preprod
+name: Pull Request into Prod and Preprod
 
 on:
   pull_request:
