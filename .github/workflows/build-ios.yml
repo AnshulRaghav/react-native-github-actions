@@ -50,20 +50,20 @@ jobs:
       - name: Build iOS (Release)
         uses: yukiarrr/ios-build-action@v1.5.0
         with:
-          project-path: ios/Timely.xcodeproj
+          project-path: ios/Appname.xcodeproj
           p12-base64: ${{ secrets.IOS_P12_BASE64 }}
           mobileprovision-base64: ${{ secrets.IOS_MOBILEPROVISION_BASE64 }}
           code-signing-identity: 'Apple Distribution'
           certificate-password: ${{ secrets.IOS_CERTIFICATE_PASSWORD }}
           team-id: ${{ secrets.IOS_TEAM_ID }}
-          workspace-path: ios/Timely.xcworkspace
-          output-path: 'Timely.ipa'
+          workspace-path: ios/Appname.xcworkspace
+          output-path: 'Appname.ipa'
 
       - name: Upload build
         uses: actions/upload-artifact@v3
         with:
-          name: 'Timely.ipa'
-          path: 'Timely.ipa'
+          name: 'Appname.ipa'
+          path: 'Appname.ipa'
 
   publish-to-appcenter:
     if: ${{ inputs.publish == true }}
@@ -74,7 +74,7 @@ jobs:
 
       - uses: actions/download-artifact@v3
         with:
-          name: Timely.ipa
+          name: Appname.ipa
           path: 'ios/'
 
       - name: set up JDK 1.8
@@ -88,6 +88,6 @@ jobs:
           appName: username/AppName
           token: ${{secrets.APPCENTER_TOKEN_IOS}}
           group: UKInternal
-          file: 'ios/Timely.ipa'
+          file: 'ios/Appname.ipa'
           notifyTesters: true
           debug: false
