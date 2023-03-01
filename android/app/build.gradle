@@ -98,8 +98,8 @@ android {
         applicationId "com.githubactions"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
-        versionCode 27
-        versionName "0.1.1-dev.9"
+        versionCode 28
+        versionName "0.1.1-dev.10"
     }
 
     splits {
