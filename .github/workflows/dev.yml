@@ -10,10 +10,6 @@ jobs:
     runs-on: macos-latest
 
     steps:
-      - name: Validate PR title
-        uses: amannn/action-semantic-pull-request@v5
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           
       - name: Checkout
         uses: actions/checkout@v3
