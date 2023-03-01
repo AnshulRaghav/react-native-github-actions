@@ -85,7 +85,7 @@ jobs:
       - name: Upload artifact to App Center
         uses: wzieba/AppCenter-Github-Action@v1
         with:
-          appName: paramsinghvc/Timely-iOS
+          appName: username/AppName
           token: ${{secrets.APPCENTER_TOKEN_IOS}}
           group: UKInternal
           file: 'ios/Timely.ipa'
