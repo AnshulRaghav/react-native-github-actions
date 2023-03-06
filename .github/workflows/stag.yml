@@ -8,6 +8,7 @@ on:
     branches: 
       - master
       - stag
+      - dev
 
 jobs:
   versioning:
@@ -24,7 +25,7 @@ jobs:
     with:
       environment: release
       publish: true
-      name: ${{ if github.head_ref == 'stag' }}Build stag branch${{ else }}Build default branch${{ endif }}
+      group: ${{ needs.versioning.outputs.group }}
     secrets: inherit
 
   # Third Job
