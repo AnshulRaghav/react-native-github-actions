@@ -32,5 +32,3 @@ jobs:
         uses: peter-evans/close-pull@v2
         with:
           comment: "Sorry, this pull request cannot be merged until the validation checks pass."
-
-

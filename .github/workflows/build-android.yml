@@ -7,14 +7,14 @@ on:
         required: false
         type: string
         default: 'release'
+      group:
+        required: false
+        type: string
+        default: ''
       publish:
         required: false
         type: boolean
         description: Publish to Appcenter
-      name:
-        required: false
-        type: string
-        description: Testing branch
     secrets:
       APPCENTER_TOKEN_ANDROID:
         required: true
@@ -36,9 +36,6 @@ jobs:
         with:
           node-version: 14
           cache: 'yarn'
-      
-      - name: Testing
-        run: echo ${{ inputs.name }}
 
       - name: Install Node modules
         run: yarn ci
@@ -104,7 +101,7 @@ jobs:
         with:
           appName: appName
           token: ${{secrets.APPCENTER_TOKEN_ANDROID}}
-          group: UKInternal
+          group: ${{inputs.group}}
           file: android/app/build/outputs/bundle/release/app-release.aab
           notifyTesters: true
           debug: false

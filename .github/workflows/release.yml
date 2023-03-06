@@ -4,6 +4,10 @@ name: Release
 
 on:
   workflow_call:
+    outputs:
+      group:
+        description: "Android release group"
+        value: ${{ jobs.bump-package-json-version.outputs.output1 }}
     inputs:
       tag-suffix:
         required: false
@@ -16,6 +20,8 @@ on:
 jobs:
   bump-package-json-version:
     runs-on: macos-latest
+    outputs:
+      output1: ${{ steps.set_group.outputs.group }}
     steps:
       - name: Checkout
         uses: actions/checkout@v3
@@ -28,6 +34,11 @@ jobs:
 
       - name: Install Node modules
         run: yarn ci 
+
+      - name: Set android release group
+        run: |
+          if [ "${{ github.head_ref }}" == "dev" ] || [ "${{ github.ref_name }}" == "dev" ]; then echo "group=Alpha 1.0" >> $GITHUB_OUTPUT; else echo "group=prod" >> $GITHUB_OUTPUT; fi
+        id: set_group
 
       - name: 'Automated Version Bump'
         uses: 'phips28/gh-action-bump-version@master'
