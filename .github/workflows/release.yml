@@ -37,7 +37,7 @@ jobs:
 
       - name: Set android release group
         run: |
-          if [ "${{ github.head_ref }}" == "stag" ]; then echo "group=Alpha 1.0" >> $GITHUB_OUTPUT; else echo "group=prod" >> $GITHUB_OUTPUT; fi
+          if [ "${{ github.head_ref }}" == "dev" ]; then echo "group=Alpha 1.0" >> $GITHUB_OUTPUT; else echo "group=prod" >> $GITHUB_OUTPUT; fi
         id: set_group
 
       - name: 'Automated Version Bump'
