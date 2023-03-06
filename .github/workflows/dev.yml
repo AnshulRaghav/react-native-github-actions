@@ -43,4 +43,4 @@ jobs:
     runs-on: macos-latest
     steps:
       - name: echo name
-        run: echo ${{ jobs.install-and-test.steps.set_name.outputs.name }}
+        run: echo ${{ dependencies.install-and-test.steps.set_name.outputs.name }}
