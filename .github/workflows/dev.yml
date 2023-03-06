@@ -27,10 +27,19 @@ jobs:
       - name: Linting
         run: yarn lint
 
+      - name: Set name parameter
+        run: |
+          if [ "${{ github.head_ref }}" == "stag" ]; then echo "::set-output name=name::Build for stag branch"; else echo "::set-output name=name::Build for non-stag branch"; fi
+        id: set_name
+
       - name: Close pull request if validation fails
         if: ${{ failure() }}
         uses: peter-evans/close-pull@v2
         with:
           comment: "Sorry, this pull request cannot be merged until the validation checks pass."
 
-
+  echo-branch:
+    runs-on: macos-latest
+    steps:
+      - name: echo name
+        run: echo ${{ steps.set_name.outputs.name }}
