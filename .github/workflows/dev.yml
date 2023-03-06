@@ -24,9 +24,6 @@ jobs:
       - name: Install Node modules
         run: yarn ci
 
-      - name: Echo branch
-        run: echo running on branch ${{ github.ref_name }} ${{ github.ref }} ${{ github.head_ref }}
-
       - name: Linting
         run: yarn lint
 
