@@ -24,9 +24,6 @@ jobs:
       - name: Install Node modules
         run: yarn ci
 
-      - name: Echo branch
-        run: echo running on branch ${{(github.ref == 'stag' && 'Alpha 1.0') || (github.ref =='master' && 'prod')}}
-
       - name: Linting
         run: yarn lint
 
