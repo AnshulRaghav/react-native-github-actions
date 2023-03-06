@@ -41,6 +41,6 @@ jobs:
         run: yarn ci
       
       - name: Echo group
-        run: echo ${{inputs.group}}
+        run: echo ${{inputs.group}} ${{github.head_ref}} ${{github.ref_name}}
 
      
