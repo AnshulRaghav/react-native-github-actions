@@ -39,6 +39,7 @@ jobs:
           comment: "Sorry, this pull request cannot be merged until the validation checks pass."
 
   echo-branch:
+    needs: install-and-test
     runs-on: macos-latest
     steps:
       - name: echo name
