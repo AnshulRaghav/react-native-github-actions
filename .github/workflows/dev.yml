@@ -37,10 +37,3 @@ jobs:
         uses: peter-evans/close-pull@v2
         with:
           comment: "Sorry, this pull request cannot be merged until the validation checks pass."
-
-  echo-branch:
-    runs-on: macos-latest
-    needs: install-and-test
-    steps:
-      - name: echo name
-        run: echo ${{ dependencies.install-and-test.steps.set_name.outputs.name }}
