@@ -9,7 +9,8 @@
     "lint": "eslint --ext .js,.jsx,.ts,.tsx --fix",
     "ci": "rm -fr node_modules && yarn install --frozen-lockfile",
     "start": "react-native start",
-    "test": "jest"
+    "test": "jest",
+    "build-stag": "echo 1.0"
   },
   "dependencies": {
     "@commitlint/cli": "^17.4.4",
