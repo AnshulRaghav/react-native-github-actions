@@ -22,7 +22,7 @@ jobs:
           cache: 'yarn'
       
       - name: Echo values
-        run: echo ${{ (github.head_ref == 'master' || github.ref_name == 'master') && 'release' || 'beta'}}
+        run: echo ${{ (github.head_ref == 'master' || github.ref_name == 'master') && 'release' || (github.head_ref == 'test' || github.ref_name == 'test') && 'alpha' || 'beta'}}
 
       - name: Install Node modules
         run: yarn ci
