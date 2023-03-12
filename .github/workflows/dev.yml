@@ -20,6 +20,9 @@ jobs:
         with:
           node-version: 14
           cache: 'yarn'
+      
+      - name: Echo values
+        run: echo ${{ (github.head_ref == "master" || github.ref_name == "master") && "release" || "beta"}}
 
       - name: Install Node modules
         run: yarn ci
