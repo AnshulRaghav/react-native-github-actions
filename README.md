@@ -14,22 +14,24 @@ CI/CD : React Native app integrated with Github Actions to deploy on **AppCenter
 
 To run the app locally, you'll need to have Node.js and the React Native CLI installed. You can then clone the repository and install the dependencies using npm:
 
-```$ git clone https://github.com/AnshulRaghav/react-native-github-actions.git```
-```$ cd react-native-github-actions```
+```$ git clone https://github.com/AnshulRaghav/react-native-github-actions.git```<br>
+```$ cd react-native-github-actions```<br>
 ```$ npm install```
-You can then run the app using the following command:
-
+<br>
+You can then run the app using the following command:<br>
 ```$ npx react-native run-android```
+<br>
 This will launch the app in the Android emulator.
 
 ## Testing
 
-To run the unit tests, use the following command:
-
+To run the unit tests, use the following command:<br>
 ```$ npm test```
-To run the linting tests, use the following command:
 
+To run the linting tests, use the following command:<br>
 ```$ npm run lint```
+<br>
+<br>
 These tests will run automatically as part of the CI pipeline when changes are pushed to the repository.
 
 ## CI/CD Pipeline
